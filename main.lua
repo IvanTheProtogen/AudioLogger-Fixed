@@ -197,8 +197,6 @@ end)
 selectedaudio = nil
 function getaudio(place)
 	if running == false then
-		GUI.Load.Visible = true running = true
-		GUI.Load:TweenSize(UDim2.new(0, 360, 0, 20),"Out","Quad",0.5,true) wait(0.3)
 		for _, child in pairs(place:GetDescendants()) do
 			spawn(function()
 				if child:IsA("Sound") and not GUI.Logs:FindFirstChild(child.SoundId) and not FindTable(ignore,child.SoundId) then
@@ -249,15 +247,8 @@ function getaudio(place)
 					end
 				end
 			end)
-		end
-	end
-	for rep = 1,10 do
-		GUI.Load.BackgroundTransparency = GUI.Load.BackgroundTransparency + 0.1
-		wait(0.05)
-	end
-	GUI.Load.Visible = false
-	GUI.Load.BackgroundTransparency = 0
-	GUI.Load.Size = UDim2.new(0, 0, 0, 20)
+		end 
+	end 
 	running = false
 end
 
